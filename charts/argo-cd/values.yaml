@@ -5,6 +5,13 @@ argo-cd:
     enabled: false
   applicationSet:
     enabled: false
+  global:
+    domain: argocd.fincato.net
+  configs:
+    params:
+      server.insecure: true
   server:
-    extraArgs:
-      - --insecure
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      tls: true
