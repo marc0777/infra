@@ -10,6 +10,7 @@ argo-cd:
   configs:
     params:
       server.insecure: true
+      application.namespaces: "default, kube-system, kube-public, kube-node-lease"
   server:
     ingress:
       enabled: true
