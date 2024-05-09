@@ -2,13 +2,19 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: infra
-  namespace: infra
+  namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   description: Infrastructure project
   sourceRepos:
   - '*'
+  sourceNamespaces:
+  - '*'
   destinations:
-  - namespace: "*"
+  - namespace: '*'
+    name: in-cluster
     server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
