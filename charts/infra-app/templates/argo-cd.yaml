@@ -5,7 +5,7 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
-  project: infra
+  project: default
   source:
     repoURL: https://github.com/marc0777/infra.git
     path: charts/argo-cd
