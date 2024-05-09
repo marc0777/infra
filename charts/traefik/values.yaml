@@ -2,3 +2,7 @@ traefik:
   service:
     enabled: true
     type: NodePort
+  providers:
+    kubernetesIngress:
+      publishedService:
+        enabled: true
