@@ -16,7 +16,3 @@ argo-cd:
       enabled: true
       ingressClassName: traefik
       tls: false
-      status:
-        loadBalancer:
-          ingress:
-          - hostname: localhost
