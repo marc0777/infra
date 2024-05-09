@@ -8,11 +8,11 @@ spec:
   project: infra
   source:
     repoURL: https://github.com/marc0777/infra.git
-    path: charts/root-app
+    path: charts/infra-app
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: infra
   syncPolicy:
     automated:
       selfHeal: true
