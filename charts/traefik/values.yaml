@@ -4,5 +4,5 @@ traefik:
     type: NodePort
   providers:
     kubernetesIngress:
-      publishedService:
-        enabled: true
+      ingressEndpoint:
+        ip: 10.0.0.212

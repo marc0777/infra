@@ -11,14 +11,6 @@ argo-cd:
     params:
       server.insecure: true
       application.namespaces: "*"
-    cm:
-      create: true
-      resource.customizations: |
-        Ingress:
-          health.lua: |
-            hs = {}
-            hs.status = "Healthy"
-            return hs
   server:
     ingress:
       enabled: true
