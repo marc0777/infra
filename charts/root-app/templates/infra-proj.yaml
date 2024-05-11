@@ -7,9 +7,9 @@ metadata:
 spec:
   description: Infrastructure project
   sourceRepos:
-  - '*'
+  - https://github.com/marc0777/infra.git
   sourceNamespaces:
-  - '*'
+  - infra
   destinations:
   - namespace: '*'
     name: in-cluster
