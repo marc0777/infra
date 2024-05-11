@@ -1,0 +1,2 @@
+sealed-secrets:
+  controller-name: sealed-secrets-controller
