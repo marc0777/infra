@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-redirect
+spec:
+  ports:
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  clusterIP: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: nginx-redirect
+subsets:
+- addresses:
+  - ip: 10.0.0.100
+  ports:
+  - name: https
+    port: 443
+    protocol: TCP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: nginx-redirect
+spec:
+  defaultBackend:
+    service:
+      name: nginx-redirect
+      port:
+        number: 443
