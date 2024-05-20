@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: maree-app
+  namespace: maree
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: maree
+  source:
+    repoURL: https://github.com/OstariaDev/maree-api.git
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: maree
+  syncPolicy:
+    automated:
+      selfHeal: true
