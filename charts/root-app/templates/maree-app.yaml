@@ -14,6 +14,7 @@ spec:
   project: maree
   source:
     repoURL: https://github.com/OstariaDev/maree-api.git
+    path: maree-api
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
