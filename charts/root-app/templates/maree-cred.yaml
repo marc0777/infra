@@ -17,3 +17,19 @@ spec:
         argocd.argoproj.io/secret-type: repo-creds
       name: maree-api-repo-creds
       namespace: argocd
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: dockerconfigjson-github-com
+  namespace: maree
+spec:
+  encryptedData:
+    .dockerconfigjson: AgC1PE3+eFe8h03MQGCKQvT63Bxa1k7/VRtrHxgkPKL+ywiRg+jV5g3NbST3xK1JxQwOuwvL2M2zZrDMjHxH7+wzCtrIOhwYIhW+ktrpE15mPFwIbEQoqv15r3URC8Zk4QOfwTF8OMkpjFNUpRbShTBIftTqWH0RFbyCLfqAC0+6y2POOVtiXFdpam8hY3C00GTRcSfDn59r6hw3FBTZ0Xb8ALa2yNvfSX00iyYwp9cZC5If5g6QKJAupYk+bAL//R2uQTjD8D6gyqv7NdDmLkOpVxaOOUujDKXxpeS1Nd3MykcwcBgiKLM0zU80WIgW8/l6YLuxdLEt/COHgp1hKDsJ9IGxCEiRGnLKMux9sG3lbzfMWwiNLaBQDm2Baw9QCh7FKokJfOrUYf+ehs+jypgcQUuc4Xa/2nmmLtvV8BTsmS+CxCUK2VYCZebCydKiLxeItExiABo6pEX14hkFMgTpq5XmE+5en5qV1RWjg+BV5jr+IbTte064o+Csy46FGg4h9s7f8CUua20GN4jtR2eTUtoE9Uc0Ya8beMAKIlsuEJLTOLMAqDHZTJ9yGEtRYIU1Ki0j/hutiAxhY2eOvrgo/jaXY2zsJqLzS9m6XW5KjIvE1tpPHJMG4NacjlsrgF6GWQAKkBO+DRH7U1GWEwWYQ9so4LQh5TXjm+KQ6XKpWvPpRAErUEf0b6QhoNbfvkAe1t4KNwUwd/sFctIbeT2ptG87O5HnHztNm372pePuISSFYXIs3BICCRH8ZWdQqMzVt4XRHEh4xMsh4Mq1piGucrbLakjFeHqS/XDX02MCI0l2mIcLSm3kg082MPJevqtjiN5N/uNPV/2Y9aDCaeJ6SSZDIuJ2ASIAvvXTmjKjLbqT
+  template:
+    metadata:
+      creationTimestamp: null
+      name: dockerconfigjson-github-com
+      namespace: maree
+    type: kubernetes.io/dockerconfigjson
