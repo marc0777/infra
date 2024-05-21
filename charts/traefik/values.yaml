@@ -4,6 +4,6 @@ traefik:
     type: NodePort
   ports:
     web:
-      exposedPort: 30080
+      nodePort: 30080
     websecure:
-      exposedPort: 30443
+      nodePort: 30443
