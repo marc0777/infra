@@ -10,7 +10,7 @@ spec:
     targetPort: 443
   type: ClusterIP
 ---
-apiVersion: v1
+apiVersion: discovery.k8s.io/v1
 kind: EndpointSlice
 metadata:
   name: nginx-redirect
