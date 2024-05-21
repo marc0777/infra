@@ -2,3 +2,8 @@ traefik:
   service:
     enabled: true
     type: NodePort
+  ports:
+    web:
+      exposedPort: 30080
+    websecure:
+      exposedPort: 30443
