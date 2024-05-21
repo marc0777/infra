@@ -5,8 +5,7 @@ metadata:
 spec:
   ports:
   - port: 443 
-    name: https
-    targetPort: https
+    targetPort: 443
 ---
 apiVersion: discovery.k8s.io/v1
 kind: EndpointSlice
@@ -17,7 +16,6 @@ metadata:
 addressType: IPv4
 ports:
   - port: 443
-    name: https
 endpoints:
   - addresses:
       - "10.0.0.100"
