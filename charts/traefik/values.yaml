@@ -7,3 +7,6 @@ traefik:
       nodePort: 30080
     websecure:
       nodePort: 30443
+  logs:
+    access:
+      enabled: true
