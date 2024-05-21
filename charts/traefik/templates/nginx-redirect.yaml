@@ -17,8 +17,9 @@ metadata:
   labels:
     kubernetes.io/service-name: nginx-redirect
 addressType: IPv4
-addresses:
-  - ip: "10.0.0.100"
+endpoints:
+  - addresses:
+    - ip: "10.0.0.100"
 ports:
   - port: 443
 ---
