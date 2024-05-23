@@ -9,7 +9,8 @@ traefik:
       nodePort: 30443
   logs:
     access:
-      enabled: true
-  providers:
-    kubernetesCRD:
-      allowCrossNamespace: true
+      enabled: true    
+  globalArguments:
+  - --global.checknewversion=false
+  - --global.sendanonymoususage=false
+  - --serverstransport.insecureskipverify=true
