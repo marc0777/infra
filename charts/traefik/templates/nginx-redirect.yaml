@@ -3,6 +3,7 @@ kind: ServersTransport
 metadata:
   name: insecure-transport
 spec:
+  serverName: 10.0.0.100
   insecureSkipVerify: true
 ---
 apiVersion: v1
@@ -11,7 +12,7 @@ metadata:
   name: nginx-redirect
   annotations:
     traefik.ingress.kubernetes.io/service.serversscheme: https
-#    traefik.ingress.kubernetes.io/service.serverstransport: kube-system-insecure-transport@kubernetescrds
+    traefik.ingress.kubernetes.io/service.serverstransport: insecure-transport@kubernetescrds
 spec:
   ports:
   - port: 443
