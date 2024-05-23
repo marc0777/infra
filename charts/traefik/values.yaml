@@ -10,3 +10,6 @@ traefik:
   logs:
     access:
       enabled: true
+  providers:
+    kubernetesCRD:
+      allowCrossNamespace: true
