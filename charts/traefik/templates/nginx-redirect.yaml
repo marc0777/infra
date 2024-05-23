@@ -1,11 +1,21 @@
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: insecure-transport
+spec:
+  insecureSkipVerify: true
+---
 apiVersion: v1
 kind: Service
 metadata:
   name: nginx-redirect
+  annotations:
+    traefik.ingress.kubernetes.io/service.serversscheme: https
+    traefik.ingress.kubernetes.io/service.serverstransport: insecure-transport@kubernetescrds
 spec:
   ports:
-  - port: 80
-    targetPort: 80
+  - port: 443
+    targetPort: 443
 ---
 apiVersion: v1
 kind: Endpoints
@@ -15,8 +25,7 @@ subsets:
   - addresses:
       - ip: 10.0.0.100
     ports:
-      - port: 80
-
+      - port: 443
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -27,4 +36,4 @@ spec:
     service:
       name: nginx-redirect
       port:
-        number: 80
+        number: 443
