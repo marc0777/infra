@@ -24,7 +24,5 @@ cilium:
     ui:
       enabled: true
 
-  bgp:
+  bgpControlPlane:
     enabled: true
-    announce:
-      loadbalancerIP: true
