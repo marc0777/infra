@@ -1,0 +1,18 @@
+apiVersion: cilium.io/v2alpha1
+kind: CiliumBGPPeeringPolicy
+metadata:
+  name: opnsense
+spec:
+  virtualRouters:
+    - localASN: 64513
+      neighbors:
+        - peerASN: 64512
+          peerAddress: 10.0.0.1
+---
+apiVersion: cilium.io/v2alpha1
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: default
+spec:
+  cidrs:
+    - cidr: 10.25.0.0/24
