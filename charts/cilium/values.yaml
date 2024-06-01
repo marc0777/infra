@@ -23,3 +23,8 @@ cilium:
       enabled: true
     ui:
       enabled: true
+
+  bgp:
+    enabled: true
+    announce:
+      loadbalancerIP: true
