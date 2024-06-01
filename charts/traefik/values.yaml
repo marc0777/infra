@@ -1,12 +1,4 @@
 traefik:
-  service:
-    enabled: true
-    type: NodePort
-  ports:
-    web:
-      nodePort: 30080
-    websecure:
-      nodePort: 30443
   logs:
     access:
       enabled: true    
