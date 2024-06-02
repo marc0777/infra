@@ -19,6 +19,13 @@ argo-cd:
               hs = {}
               hs.status = "Healthy"
               return hs
+      resource.exclusions: |
+        - apiGroups:
+            - cilium.io
+          kinds:
+            - CiliumIdentity
+          clusters:
+            - "*"
   server:
     ingress:
       enabled: true
