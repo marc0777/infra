@@ -26,3 +26,7 @@ cilium:
 
   bgpControlPlane:
     enabled: true
+
+  ingressController:
+    enabled: true
+    loadbalancerMode: shared
