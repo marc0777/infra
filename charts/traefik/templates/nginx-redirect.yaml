@@ -16,6 +16,7 @@ subsets:
       - ip: 10.0.0.100
     ports:
       - port: 443
+        appProtocol: https
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
