@@ -29,5 +29,5 @@ argo-cd:
   server:
     ingress:
       enabled: true
-      ingressClassName: traefik
+      ingressClassName: cilium
       tls: false
