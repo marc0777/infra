@@ -4,6 +4,8 @@ metadata:
   name: cilium
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
 spec:
   project: infra
   source:
@@ -16,5 +18,3 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
-    syncOptions:
-    - ServerSideApply=true
