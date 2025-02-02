@@ -6,3 +6,7 @@ traefik:
   - --global.checknewversion=false
   - --global.sendanonymoususage=false
   - --serverstransport.insecureskipverify=true
+  tlsStore:
+    default:
+      defaultCertificate:
+        secretName: fincato-pnogo-wildcard
