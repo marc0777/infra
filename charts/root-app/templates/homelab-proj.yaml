@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: homelab
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Homelab project
+  sourceRepos:
+  - https://github.com/OstariaDev/operations.git
+  sourceNamespaces:
+  - homelab
+  destinations:
+  - namespace: 'media'
+    name: in-cluster
+    server: https://kubernetes.default.svc
+  - namespace: 'authentik'
+    name: in-cluster
+    server: https://kubernetes.default.svc
+  - namespace: 'outline'
+    name: in-cluster
+    server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
