@@ -26,14 +26,3 @@ cilium:
 
   bgpControlPlane:
     enabled: true
-
-  ingressController:
-    enabled: true
-    loadbalancerMode: shared
-    service:
-      insecureNodePort: 30080
-      secureNodePort: 30443
-      type: LoadBalancer
-
-  gatewayAPI:
-    enabled: true
