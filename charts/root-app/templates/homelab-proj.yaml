@@ -23,6 +23,9 @@ spec:
   - namespace: 'outline'
     name: in-cluster
     server: https://kubernetes.default.svc
+  - namespace: 'vaultwarden'
+    name: in-cluster
+    server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
