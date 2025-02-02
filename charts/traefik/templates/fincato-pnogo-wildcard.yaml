@@ -10,4 +10,4 @@ spec:
     - "*.pnogo.dev"
   issuerRef:
     name: cloudflare
-    kind: ClusterIssuers
+    kind: ClusterIssuer
