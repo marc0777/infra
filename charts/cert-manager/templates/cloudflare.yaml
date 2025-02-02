@@ -12,6 +12,7 @@ spec:
     solvers:
       - dns01:
           cloudflare:
+            email: marcofincato777@gmail.com
             apiTokenSecretRef:
               name: cloudflare
               key: api-token
