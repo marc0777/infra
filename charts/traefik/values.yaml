@@ -9,4 +9,4 @@ traefik:
   tlsStore:
     default:
       defaultCertificate:
-        secretName: fincato-pnogo-wildcard
+        secretName: fincato-pnogo-wildcard-tls
