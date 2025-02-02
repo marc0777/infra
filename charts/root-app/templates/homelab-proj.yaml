@@ -11,6 +11,9 @@ spec:
   sourceNamespaces:
   - homelab
   destinations:
+  - namespace: 'homelab'
+    name: in-cluster
+    server: https://kubernetes.default.svc
   - namespace: 'media'
     name: in-cluster
     server: https://kubernetes.default.svc
