@@ -26,6 +26,9 @@ spec:
   - namespace: 'vaultwarden'
     name: in-cluster
     server: https://kubernetes.default.svc
+  - namespace: 'umami'
+    name: in-cluster
+    server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
