@@ -29,6 +29,9 @@ spec:
   - namespace: 'umami'
     name: in-cluster
     server: https://kubernetes.default.svc
+  - namespace: 'heimdall'
+    name: in-cluster
+    server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
