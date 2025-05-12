@@ -10,9 +10,10 @@ traefik:
     default:
       defaultCertificate:
         secretName: fincato-pnogo-wildcard-tls
-  websecure:
-    transport:
-      respondingTimeouts:
-        readTimeout: 600
-        writeTimeout: 600
-        idleTimeout: 600
+  ports:
+    websecure:
+      transport:
+        respondingTimeouts:
+          readTimeout: 600
+          writeTimeout: 600
+          idleTimeout: 600
