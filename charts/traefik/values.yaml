@@ -1,7 +1,7 @@
 traefik:
   logs:
     access:
-      enabled: true    
+      enabled: true
   globalArguments:
   - --global.checknewversion=false
   - --global.sendanonymoususage=false
@@ -10,3 +10,9 @@ traefik:
     default:
       defaultCertificate:
         secretName: fincato-pnogo-wildcard-tls
+        websecure:
+          transport:
+            respondingTimeouts:
+              readTimeout: 600
+              writeTimeout: 600
+              idleTimeout: 600
