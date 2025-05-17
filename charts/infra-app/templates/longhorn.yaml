@@ -21,3 +21,8 @@ spec:
   syncPolicy:
     automated:
       selfHeal: true
+  ignoreDifferences:
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    jsonPointers:
+    - /spec/preserveUnknownFields
