@@ -11,7 +11,7 @@ argo-cd:
     params:
       server.insecure: true
       application.namespaces: "*"
-    cm: 
+    cm:
       create: true
       resource.customizations: |
         networking.k8s.io/Ingress:
@@ -26,6 +26,15 @@ argo-cd:
             - CiliumIdentity
           clusters:
             - "*"
+      oidc.config: |
+        name: Authentik
+        issuer: https://auth.fincato.net/application/o/argocd/
+        clientID: 2YORSXlbG9H5480clskvCvw9buj3Quh2Sykkj2Md
+        clientSecret: $argocd-oidc-secret:oidc.authentik.clientSecret
+        requestedScopes:
+          - openid
+          - profile
+          - email
   server:
     ingress:
       enabled: true
