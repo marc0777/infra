@@ -30,12 +30,16 @@ argo-cd:
         name: Authentik
         issuer: https://auth.fincato.net/application/o/argocd/
         clientID: 2YORSXlbG9H5480clskvCvw9buj3Quh2Sykkj2Md
-        clientSecret: $argocd-oidc-secret:oidc.authentik.clientSecret
         requestedScopes:
           - openid
           - profile
           - email
         enablePKCEAuthentication: true
+    rbac:
+      create: true
+      policy.csv: |
+        g, Superadmin, role:admin
+        g, Ponghers, role:readonly
   server:
     ingress:
       enabled: true
