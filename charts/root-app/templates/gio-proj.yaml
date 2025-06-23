@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: gio
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Gio project
+  sourceRepos:
+  - https://github.com/giorgia22/*
+  sourceNamespaces:
+  - gio
+  destinations:
+  - namespace: 'gio'
+    name: in-cluster
+    server: https://kubernetes.default.svc
+  - namespace: 'gio-*'
+    name: in-cluster
+    server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
