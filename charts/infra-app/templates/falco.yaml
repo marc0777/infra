@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: falco
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: falco
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infra
+  source:
+    repoURL: https://github.com/marc0777/infra.git
+    path: charts/falco
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: falco
+  syncPolicy:
+    automated:
+      selfHeal: true
