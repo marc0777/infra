@@ -4,27 +4,28 @@ metadata:
   name: opnsense
 spec:
   bgpInstances:
-    - peerConfig:
-        peerASN: 64512
-        neighborAddress: 10.0.0.1/32
+    - name: "instance-64513"
       localASN: 64513
+      peers:
+        - name: "peer-64512-opnsense"
+          peerASN: 64512
+          peerAddress: 10.0.0.1
 ---
 apiVersion: cilium.io/v2
 kind: CiliumBGPAdvertisement
 metadata:
   name: advertise-opnsense
+  labels:
+    advertise: bgp
 spec:
-  to:
-    peerSelectors:
-      - matchLabels:
-          name: opnsense
-  serviceSelectors:
-    - matchExpressions:
-        - key: somekey
-          operator: NotIn
-          values:
-            - "never-used-value"
-  advertisePodCIDR: false
+  advertisements:
+    - advertisementType: "Service"
+      service:
+        addresses:
+          - LoadBalancerIP
+      selector:
+        matchExpressions:
+          - { key: somekey, operator: NotIn, values: ['never-used-value'] }
 ---
 apiVersion: cilium.io/v2
 kind: CiliumLoadBalancerIPPool
