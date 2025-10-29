@@ -1,4 +1,16 @@
 apiVersion: cilium.io/v2
+kind: CiliumBGPPeerConfig
+metadata:
+  name: cilium-peer
+spec:
+  families:
+    - afi: ipv4
+      safi: unicast
+      advertisements:
+        matchLabels:
+          advertise: "bgp"
+---
+apiVersion: cilium.io/v2
 kind: CiliumBGPClusterConfig
 metadata:
   name: opnsense
@@ -10,6 +22,8 @@ spec:
         - name: "peer-64512-opnsense"
           peerASN: 64512
           peerAddress: 10.0.0.1
+          peerConfigRef:
+            name: cilium-peer
 ---
 apiVersion: cilium.io/v2
 kind: CiliumBGPAdvertisement
