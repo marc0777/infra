@@ -3,7 +3,7 @@ kind: CiliumBGPClusterConfig
 metadata:
   name: opnsense
 spec:
-  peers:
+  bgpInstances:
     - peerConfig:
         peerASN: 64512
         neighborAddress: 10.0.0.1/32
