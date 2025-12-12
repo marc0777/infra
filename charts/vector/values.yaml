@@ -1,40 +1,41 @@
-role: 'Agent'
+vector:
+  role: 'Agent'
 
-customConfig:
-  data_dir: /vector-data-dir
-  api:
-    enabled: true
-    address: 127.0.0.1:8686
-    playground: false
-  sources:
-    kubernetes_logs:
-      type: kubernetes_logs
-    host_metrics:
-      filesystem:
-        devices:
-          excludes: [binfmt_misc]
-        filesystems:
-          excludes: [binfmt_misc]
-        mountpoints:
-          excludes: ['*/proc/sys/fs/binfmt_misc']
-      type: host_metrics
-    internal_metrics:
-      type: internal_metrics
-  sinks:
-    prom_exporter:
-      type: prometheus_exporter
-      inputs: [host_metrics, internal_metrics]
-      address: 0.0.0.0:9090
-    vlogs:
-      inputs: [kubernetes_logs]
-      type: elasticsearch
-      endpoints:
-        - http://10.0.0.111:9428/insert/elasticsearch/
-      api_version: v8
-      compression: gzip
-      healthcheck:
-        enabled: false
-      query:
-        _msg_field: message
-        _time_field: timestamp
-        _stream_fields: host,container_name
+  customConfig:
+    data_dir: /vector-data-dir
+    api:
+      enabled: true
+      address: 127.0.0.1:8686
+      playground: false
+    sources:
+      kubernetes_logs:
+        type: kubernetes_logs
+      host_metrics:
+        filesystem:
+          devices:
+            excludes: [binfmt_misc]
+          filesystems:
+            excludes: [binfmt_misc]
+          mountpoints:
+            excludes: ['*/proc/sys/fs/binfmt_misc']
+        type: host_metrics
+      internal_metrics:
+        type: internal_metrics
+    sinks:
+      prom_exporter:
+        type: prometheus_exporter
+        inputs: [host_metrics, internal_metrics]
+        address: 0.0.0.0:9090
+      vlogs:
+        inputs: [kubernetes_logs]
+        type: elasticsearch
+        endpoints:
+          - http://10.0.0.111:9428/insert/elasticsearch/
+        api_version: v8
+        compression: gzip
+        healthcheck:
+          enabled: false
+        query:
+          _msg_field: message
+          _time_field: timestamp
+          _stream_fields: host,container_name
