@@ -1,2 +1,20 @@
 falco:
   tty: true
+
+  falco:
+    json_output: true
+
+  customRules:
+    cni-exceptions.yaml: |
+      - macro: cni_binaries
+        condition: >
+          proc_exepath in (
+            /opt/cni/bin/loopback,
+            /opt/cni/bin/cilium-cni
+          )
+
+      - rule: Executing binary not part of base image
+        desc: >
+          Exclude execution of known CNI binaries with exact paths
+        condition: >
+          and not cni_binaries
