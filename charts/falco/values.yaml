@@ -12,6 +12,7 @@ falco:
           - '"/opt/cni/bin/cilium-cni"'
 
       - rule: Drop and execute new binary in container
-        condition: and not proc_exepath in (cni_binaries)
+        condition: >
+          and not proc.exepath in (cni_binaries)
         override:
           condition: append
