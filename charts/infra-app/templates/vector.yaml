@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: victoria-metrics
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: victoria-metrics
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: infra
+  source:
+    repoURL: https://github.com/marc0777/infra.git
+    path: charts/victoria-metrics
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: victoria-metrics
+  syncPolicy:
+    automated:
+      selfHeal: true
