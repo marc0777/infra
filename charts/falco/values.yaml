@@ -8,8 +8,8 @@ falco:
     cni-exceptions.yaml: |
       - list: cni_binaries
         items:
-          - "/opt/cni/bin/loopback"
-          - "/opt/cni/bin/cilium-cni"
+          - '"/opt/cni/bin/loopback"'
+          - '"/opt/cni/bin/cilium-cni"'
 
       - rule: Drop and execute new binary in container
         condition: and not proc_exepath in (cni_binaries)
