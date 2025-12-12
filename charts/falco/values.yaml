@@ -6,14 +6,12 @@ falco:
 
   customRules:
     cni-exceptions.yaml: |
-      - macro: cni_binaries
-        condition: >
-          proc_exepath in (
-            /opt/cni/bin/loopback,
-            /opt/cni/bin/cilium-cni
-          )
+      - list: cni_binaries
+        items:
+          - /opt/cni/bin/loopback
+          - /opt/cni/bin/cilium-cni
 
       - rule: Drop and execute new binary in container
-        condition: and not cni_binaries
+        condition: and not proc_exepath in (cni_binaries)
         override:
           condition: append
