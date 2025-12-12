@@ -13,8 +13,7 @@ falco:
             /opt/cni/bin/cilium-cni
           )
 
-      - rule: Executing binary not part of base image
-        desc: >
-          Exclude execution of known CNI binaries with exact paths
-        condition: >
-          and not cni_binaries
+      - rule: Drop and execute new binary in container
+        condition: and not cni_binaries
+        override:
+          condition: append
