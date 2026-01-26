@@ -3,5 +3,5 @@ name: victoria-metrics
 version: 1.0.0
 dependencies:
   - name: victoria-metrics-operator
-    version: 0.57.1
+    version: 0.58.1
     repository: https://victoriametrics.github.io/helm-charts
