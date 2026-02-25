@@ -2,5 +2,8 @@ dependencies:
 - name: victoria-metrics-operator
   repository: https://victoriametrics.github.io/helm-charts
   version: 0.58.1
-digest: sha256:6ea6b55eaf29e766fd90b0ca08a7d46e3606fa5b720f75f28eabb47fad2d6aea
-generated: "2026-01-26T03:30:10.101300117Z"
+- name: prometheus-operator-crds
+  repository: https://prometheus-community.github.io/helm-charts
+  version: 27.0.0
+digest: sha256:87e5725229ddc4c3502852ac98173127fed0822f38416c9bf3cce72adcf0e05b
+generated: "2026-02-25T20:33:19.61737+01:00"
