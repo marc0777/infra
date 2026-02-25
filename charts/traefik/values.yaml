@@ -2,6 +2,10 @@ traefik:
   logs:
     access:
       enabled: true
+  metrics:
+    prometheus:
+      serviceMonitor:
+        enabled: true
   global:
     checkNewVersion: false
     sendAnonymousUsage: false
