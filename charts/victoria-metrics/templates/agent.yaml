@@ -1,0 +1,8 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMAgent
+metadata:
+  name: select-all
+spec:
+  selectAllByDefault: true
+  remoteWrite:
+    - url: "http://10.0.0.111:8428/api/v1/write"
