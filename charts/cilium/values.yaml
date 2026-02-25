@@ -26,3 +26,10 @@ cilium:
 
   bgpControlPlane:
     enabled: true
+
+  prometheus:
+    metricsService: true
+    enabled: true
+    port: 9962
+    serviceMonitor:
+      enabled: true
