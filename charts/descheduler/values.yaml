@@ -1,3 +1,4 @@
 descheduler:
+  kind: Deployment
   serviceMonitor:
     enabled: true
