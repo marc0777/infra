@@ -2,9 +2,10 @@ traefik:
   logs:
     access:
       enabled: true
-  globalArguments:
-  - --global.checknewversion=false
-  - --global.sendanonymoususage=false
+  global:
+    checkNewVersion: false
+    sendAnonymousUsage: false
+  additionalArguments:
   - --serverstransport.insecureskipverify=true
   tlsStore:
     default:
