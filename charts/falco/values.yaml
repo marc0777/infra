@@ -4,6 +4,12 @@ falco:
   falco:
     json_output: true
 
+  metrics:
+    enabled: true
+
+  serviceMonitor:
+    create: true
+
   customRules:
     cni-exceptions.yaml: |
       - list: cni_binaries
