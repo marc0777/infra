@@ -11,6 +11,7 @@ argo-cd:
     params:
       server.insecure: true
       application.namespaces: "*"
+      applicationsetcontroller.namespaces: "*"
     cm:
       create: true
       resource.customizations: |
