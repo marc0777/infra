@@ -39,6 +39,7 @@ argo-cd:
           - email
           - offline_access
         clientSecret: $argocd-oidc-secret:clientSecret
+        refreshTokenThreshold: 2m
     rbac:
       create: true
       policy.csv: |
