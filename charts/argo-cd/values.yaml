@@ -38,6 +38,7 @@ argo-cd:
           - profile
           - email
           - offline_access
+        clientSecret: $argocd-oidc-secret:oidc.authentik.clientSecret
         enablePKCEAuthentication: true
     rbac:
       create: true
