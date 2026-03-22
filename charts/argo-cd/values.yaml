@@ -37,6 +37,7 @@ argo-cd:
           - openid
           - profile
           - email
+          - offline_access
         enablePKCEAuthentication: true
     rbac:
       create: true
