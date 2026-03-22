@@ -12,6 +12,7 @@ argo-cd:
       server.insecure: true
       application.namespaces: "*"
       applicationsetcontroller.namespaces: "*"
+      applicationsetcontroller.enable-scm-providers: "false"
     cm:
       create: true
       resource.customizations: |
