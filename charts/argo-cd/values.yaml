@@ -5,6 +5,8 @@ argo-cd:
     enabled: false
   applicationSet:
     enabled: true
+    allowedNamespaces:
+      - "*"
   global:
     domain: argocd.fincato.net
   configs:
