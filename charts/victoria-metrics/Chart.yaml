@@ -3,7 +3,7 @@ name: victoria-metrics
 version: 1.0.0
 dependencies:
   - name: victoria-metrics-operator
-    version: 0.61.0
+    version: 0.62.0
     repository: https://victoriametrics.github.io/helm-charts
   - name: prometheus-operator-crds
     version: 28.0.1
