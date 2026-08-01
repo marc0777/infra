@@ -1,7 +1,6 @@
 traefik:
-  logs:
-    access:
-      enabled: true
+  accessLog:
+    enabled: true
   metrics:
     prometheus:
       serviceMonitor:
