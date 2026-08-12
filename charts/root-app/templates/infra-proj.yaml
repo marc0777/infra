@@ -8,6 +8,19 @@ spec:
   description: Infrastructure project
   sourceRepos:
   - https://github.com/marc0777/infra.git
+  # helm dependency repos must be permitted too
+  - https://argoproj.github.io/argo-helm
+  - https://charts.jetstack.io
+  - https://helm.cilium.io/
+  - https://kubernetes-sigs.github.io/descheduler
+  - https://falcosecurity.github.io/charts
+  - https://charts.longhorn.io
+  - https://kubernetes-sigs.github.io/metrics-server/
+  - https://bitnami.github.io/sealed-secrets
+  - https://traefik.github.io/charts
+  - https://helm.vector.dev
+  - https://victoriametrics.github.io/helm-charts
+  - https://prometheus-community.github.io/helm-charts
   sourceNamespaces:
   - infra
   destinations:
