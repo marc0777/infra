@@ -1,0 +1,19 @@
+crowdsec:
+  container_runtime: containerd
+  lapi:
+    enabled: false
+  secrets:
+    externalSecret:
+      name: crowdsec-agent
+      registrationTokenKey: registrationToken
+  agent:
+    lapiURL: http://10.0.0.1:8080
+    lapiHost: 10.0.0.1
+    lapiPort: 8080
+    acquisition:
+      - namespace: traefik
+        podName: traefik-*
+        program: traefik
+    env:
+      - name: COLLECTIONS
+        value: crowdsecurity/traefik

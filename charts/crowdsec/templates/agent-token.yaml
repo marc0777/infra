@@ -1,0 +1,14 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: crowdsec-agent
+  namespace: crowdsec
+spec:
+  encryptedData:
+    registrationToken: AgCz3pDe7Q2zQsTdCJbSF3v4VSOyEQjcXfzlGOpCpf/auG3dEyQoUkaTBJgNiPoM7W8VIWW7kFngHUWe0i2dCUJrb5XSkhHBAuDSNhHFap+Dc5xtI3T1d7vvQMQpM1qWHFcFXxLVndDU5iyBF/60KSWTpPim4MCOC04km6lnEJsFbkeBLlSSQOSMJeuie5tMApLb94XFahOqcz+v9ssR3VJyZN1CYiD4xvTJ/rX9NVRGcE2Evivl2ltCmu/yEPV9dCcSjluGCea+wmnRFRb+ehYrGQ10X3AH1NlQnZyZHHOMznm63ArLLKgcSinQd6T/A83uZctvsMpjrHKqkhglNdn0krmCL5fs4Z/d4BqtYIR+ycVtpDKuHCxrGZynrDXu3C6Z+Qu21qp3FD1jMPcjEGYK4t8PuqwpnHGLjeMym71xZlDRfEU7aHa46fCkq1HynPIsUTIdzYp65d2f6mM45rSeCeVTAkhig52dl0q0OecFmxIEIwCM5F70ArKtIO/mTIlwfaO2JmnowIu59in5HVz8NNUWTkE1CgdFW6EsOuxYFou6oDVSwBwVWvyPZJFHU+f/rhJWUBzeT0u6jSVKV+9wHoMAmGPWAX+ki6TcliWSFnWQJWLL3RAypWsd1i20fP/Lg/ohGVgkISj6XBV6HfSIlkirA7oYyYeX57HRjjMa+4CDc2+4TJ78EUEev6NrrbClviqmMzk+ZgzTmFhMWpw3tR2EM2jCjo2evsWDsLclpxsaoNmhD9iq63KopfTRB04FB5W5hIzLCwihBoj9P/Cl
+  template:
+    metadata:
+      name: crowdsec-agent
+      namespace: crowdsec
+    type: Opaque
