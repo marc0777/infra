@@ -22,3 +22,19 @@ falco:
           and not proc.exepath in (cni_binaries)
         override:
           condition: append
+
+    longhorn-exceptions.yaml: |
+      - macro: longhorn_instance_manager
+        condition: container.image.repository = "docker.io/longhornio/longhorn-instance-manager"
+
+      - rule: Clear Log Activities
+        condition: >
+          and not (longhorn_instance_manager and proc.name = tee and fd.name = /var/log/tgtd.log)
+        override:
+          condition: append
+
+      - rule: Redirect STDOUT/STDIN to Network Connection in Container
+        condition: >
+          and not (longhorn_instance_manager and proc.name = longhorn-instan)
+        override:
+          condition: append
