@@ -2,6 +2,16 @@ cilium:
   ipam:
     mode: kubernetes
 
+  routingMode: native
+  ipv4NativeRoutingCIDR: 10.244.0.0/16
+  autoDirectNodeRoutes: true
+
+  bpf:
+    masquerade: true
+
+  loadBalancer:
+    mode: hybrid
+
   kubeProxyReplacement: true
   k8sServiceHost: 10.0.0.212
   k8sServicePort: 6443
