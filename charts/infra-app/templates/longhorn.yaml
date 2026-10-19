@@ -9,6 +9,8 @@ metadata:
   name: longhorn
   finalizers:
   - resources-finalizer.argocd.argoproj.io
+  - pre-delete-finalizer.argocd.argoproj.io
+  - pre-delete-finalizer.argocd.argoproj.io/cleanup
 spec:
   project: infra
   source:
