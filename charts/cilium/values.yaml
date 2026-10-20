@@ -33,6 +33,15 @@ cilium:
       enabled: true
     ui:
       enabled: true
+    metrics:
+      enabled:
+        - dns:query;ignoreAAAA
+        - drop
+        - tcp
+        - flow
+        - icmp
+      serviceMonitor:
+        enabled: true
 
   bgpControlPlane:
     enabled: true
@@ -43,3 +52,9 @@ cilium:
     port: 9962
     serviceMonitor:
       enabled: true
+
+  operator:
+    prometheus:
+      enabled: true
+      serviceMonitor:
+        enabled: true
