@@ -8,3 +8,6 @@ dependencies:
   - name: prometheus-operator-crds
     version: 32.0.1
     repository: https://prometheus-community.github.io/helm-charts
+  - name: kube-state-metrics
+    version: 8.6.0
+    repository: https://prometheus-community.github.io/helm-charts
