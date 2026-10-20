@@ -6,6 +6,10 @@ argo-cd:
   applicationSet:
     enabled: true
     allowAnyNamespace: true
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
   global:
     domain: argocd.fincato.net
   configs:
@@ -50,3 +54,17 @@ argo-cd:
       enabled: true
       ingressClassName: traefik
       tls: false
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+  controller:
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+  repoServer:
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
