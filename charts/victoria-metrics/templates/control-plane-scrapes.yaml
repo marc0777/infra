@@ -1,0 +1,37 @@
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMServiceScrape
+metadata:
+  name: apiserver
+spec:
+  namespaceSelector:
+    matchNames: [default]
+  selector:
+    matchLabels:
+      component: apiserver
+      provider: kubernetes
+  endpoints:
+    - port: https
+      scheme: https
+      tlsConfig:
+        caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+        serverName: kubernetes
+      bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+      metricRelabelConfigs:
+        - action: drop
+          source_labels: [__name__]
+          regex: (apiserver_request_body_size_bytes_bucket|apiserver_response_sizes_bucket|apiserver_watch_events_sizes_bucket|etcd_request_duration_seconds_bucket)
+  jobLabel: component
+---
+apiVersion: operator.victoriametrics.com/v1beta1
+kind: VMServiceScrape
+metadata:
+  name: coredns
+spec:
+  namespaceSelector:
+    matchNames: [kube-system]
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
+  endpoints:
+    - port: metrics
+  jobLabel: k8s-app
