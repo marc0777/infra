@@ -1,0 +1,13 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: crowdsec-bouncer
+  namespace: traefik
+spec:
+  encryptedData:
+    key: AgCYfTy+q66Gfj87PeumsfZn/+2LIqGESnnF5O+V3kTmQo/oGRpy9d7+F7YSDIN6J4Q4ve46EY+tH3+sEH6BXtd91FHXv5lc5vw7ifHVHvc87PKg0bR2BZPbI8IiSpGwOri1VWXZMWuWLv3LGc0qbMWXsW2eyOt7AxQoP8AQLKF5jZ8rDpKv/J6lcASqQpANl3yupG6aNnaF3o6KdyzW86OUVqJ4rB+nL8PGRm0ib9DzxCN/+5FEnNojVB5bcbEdeThhJ3ndJtyRlO33vFC+HMQOfVJvzCSNOhOtXsnJxFl4ksKZ9nj/o9sHnj1qN3OsktyKL3Vv86+DA/XNf/zn7Wx0bHnrqGHFBICmHDLJli+BSztlQNht/4UF3/3Xmzzm4OyYd+R6LAMPXxUuIONqchUP+I+YzinJ1BI0esnvi77ENA5dT74JT1x9kgBe56ivxXP/8sHZllZj9261UAH4O52hbXR3iyPcGq+c0tliVuJafkYuGokAcOSltK441SYIDwPtKaLrZA0aRzEoXDg4Mc3w0jEB6SF9GpwiqPEbtll9MX7mah3WArmpxrSVwOv17JgQrUu6usisWxXoZB2quQQEHeOtlsYF5KI9cHBcDt3peFYbPoDCHryY2N9TtkoYy/B+za3w+WB+AZxM93VZ2KagVZVh1reFpQFyzg5jcoq1YS+XtHX+h+1ZHVHNznrXJPa9aAX7zwqr5vINO/b2HnDbZUzYWfL4CdpmxXs+8byen5F+UqxhYRfHO48N
+  template:
+    metadata:
+      name: crowdsec-bouncer
+      namespace: traefik

@@ -21,3 +21,11 @@ traefik:
           readTimeout: 600
           writeTimeout: 600
           idleTimeout: 600
+      http:
+        middlewares:
+        - traefik-crowdsec-bouncer@kubernetescrd
+  experimental:
+    plugins:
+      crowdsec-bouncer:
+        moduleName: github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin
+        version: v1.8.1
