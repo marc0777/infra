@@ -10,6 +10,8 @@ vector:
       kubernetes_logs:
         type: kubernetes_logs
       host_metrics:
+        # all defaults except process
+        collectors: [cgroups, cpu, disk, filesystem, load, host, memory, network, tcp]
         filesystem:
           devices:
             excludes: [binfmt_misc]

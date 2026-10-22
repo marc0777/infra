@@ -6,3 +6,7 @@ longhorn:
   metrics:
     serviceMonitor:
       enabled: true
+      metricRelabelings:
+        - action: drop
+          sourceLabels: [__name__]
+          regex: longhorn_(rest_client|workqueue)_.+_bucket
