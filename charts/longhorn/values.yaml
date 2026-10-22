@@ -3,6 +3,9 @@ longhorn:
     jobEnabled: false
   longhornUI:
     replicas: 1
+  defaultSettings:
+    # % of node CPU requested per instance manager; applied only once all volumes are detached
+    guaranteedInstanceManagerCPU: '{"v1":"5","v2":"5"}'
   metrics:
     serviceMonitor:
       enabled: true
