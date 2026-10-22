@@ -17,6 +17,9 @@ crowdsec:
     env:
       - name: COLLECTIONS
         value: crowdsecurity/traefik
+    resources:
+      requests:
+        cpu: 50m
     metrics:
       enabled: true
       serviceMonitor:

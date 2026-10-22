@@ -1,6 +1,10 @@
 falco:
   tty: true
 
+  resources:
+    requests:
+      memory: 192Mi
+
   falco:
     json_output: true
 
