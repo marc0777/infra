@@ -20,6 +20,7 @@ falco:
         items:
           - '"/opt/cni/bin/loopback"'
           - '"/opt/cni/bin/cilium-cni"'
+          - '"/opt/cni/bin/cilium-sysctlfix"'
 
       - rule: Drop and execute new binary in container
         condition: >
@@ -31,6 +32,9 @@ falco:
       - macro: longhorn_instance_manager
         condition: container.image.repository = "docker.io/longhornio/longhorn-instance-manager"
 
+      - macro: longhorn_manager
+        condition: container.image.repository = "docker.io/longhornio/longhorn-manager"
+
       - rule: Clear Log Activities
         condition: >
           and not (longhorn_instance_manager and proc.name = tee and fd.name = /var/log/tgtd.log)
@@ -40,5 +44,6 @@ falco:
       - rule: Redirect STDOUT/STDIN to Network Connection in Container
         condition: >
           and not (longhorn_instance_manager and proc.name = longhorn-instan)
+          and not (longhorn_manager and proc.name = longhorn)
         override:
           condition: append
