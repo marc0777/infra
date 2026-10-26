@@ -1,11 +1,9 @@
-{{- range $name, $path := dict "kubelet" "/metrics" "cadvisor" "/metrics/cadvisor" }}
----
 apiVersion: operator.victoriametrics.com/v1beta1
 kind: VMNodeScrape
 metadata:
-  name: {{ $name }}
+  name: cadvisor
 spec:
-  path: {{ $path }}
+  path: /metrics/cadvisor
   scheme: https
   honorLabels: true
   honorTimestamps: false
@@ -14,6 +12,9 @@ spec:
     caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
   bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
   metricRelabelConfigs:
+    - action: keep
+      source_labels: [__name__]
+      regex: container_(cpu_usage_seconds_total|memory_working_set_bytes|pressure_(cpu|memory|io)_stalled_seconds_total|network_(receive|transmit)_bytes_total|fs_(reads|writes)_bytes_total)
     - action: labeldrop
       regex: (uid|id|name)
   relabelConfigs:
@@ -23,4 +24,3 @@ spec:
       targetLabel: metrics_path
     - targetLabel: job
       replacement: kubelet
-{{- end }}
