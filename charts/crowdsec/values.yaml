@@ -27,6 +27,10 @@ crowdsec:
     extraVolumeMounts:
       - name: crowdsec-data
         mountPath: /var/lib/crowdsec/data
+        subPath: data
+      - name: crowdsec-data
+        mountPath: /etc/crowdsec/hub
+        subPath: hub
     resources:
       requests:
         cpu: 50m
@@ -50,13 +54,17 @@ crowdsec:
     env:
       - name: COLLECTIONS
         value: crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules
-    # Mounted data dir makes the image run `cscli hub upgrade` on start
+    # Mounted data dir makes the image run upgrades on start
     extraVolumes:
       - name: crowdsec-data
         emptyDir: {}
     extraVolumeMounts:
       - name: crowdsec-data
         mountPath: /var/lib/crowdsec/data
+        subPath: data
+      - name: crowdsec-data
+        mountPath: /etc/crowdsec/hub
+        subPath: hub
     resources:
       requests:
         cpu: 50m
