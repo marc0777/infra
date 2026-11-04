@@ -1,4 +1,6 @@
 crowdsec:
+  image:
+    tag: v1.8.2
   container_runtime: containerd
   lapi:
     enabled: false
