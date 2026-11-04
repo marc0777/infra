@@ -20,6 +20,13 @@ crowdsec:
     env:
       - name: COLLECTIONS
         value: crowdsecurity/traefik
+    # Mounted data dir makes the image run upgrades on start
+    extraVolumes:
+      - name: crowdsec-data
+        emptyDir: {}
+    extraVolumeMounts:
+      - name: crowdsec-data
+        mountPath: /var/lib/crowdsec/data
     resources:
       requests:
         cpu: 50m
@@ -43,6 +50,13 @@ crowdsec:
     env:
       - name: COLLECTIONS
         value: crowdsecurity/appsec-virtual-patching crowdsecurity/appsec-generic-rules
+    # Mounted data dir makes the image run `cscli hub upgrade` on start
+    extraVolumes:
+      - name: crowdsec-data
+        emptyDir: {}
+    extraVolumeMounts:
+      - name: crowdsec-data
+        mountPath: /var/lib/crowdsec/data
     resources:
       requests:
         cpu: 50m
