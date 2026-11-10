@@ -1,4 +1,16 @@
 traefik:
+  providers:
+    kubernetesGateway:
+      enabled: true
+  gateway:
+    listeners:
+      websecure:
+        port: 8443
+        protocol: HTTPS
+        namespacePolicy:
+          from: All
+        certificateRefs:
+        - name: fincato-pnogo-wildcard-tls
   accessLog:
     enabled: true
   metrics:
