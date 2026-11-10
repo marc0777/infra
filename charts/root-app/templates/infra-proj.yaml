@@ -8,6 +8,7 @@ spec:
   description: Infrastructure project
   sourceRepos:
   - https://github.com/marc0777/infra.git
+  - https://github.com/kubernetes-sigs/gateway-api.git
   # helm dependency repos must be permitted too
   - https://argoproj.github.io/argo-helm
   - https://charts.jetstack.io
