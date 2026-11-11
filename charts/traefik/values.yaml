@@ -11,6 +11,17 @@ traefik:
           from: All
         certificateRefs:
         - name: fincato-pnogo-wildcard-tls
+  deployment:
+    kind: DaemonSet
+    # Resolve cluster DNS names (e.g. CrowdSec services) while on the host network
+    dnsPolicy: ClusterFirstWithHostNet
+  # Listen on the nodes' IPv6 addresses for IPv6 ingress forwarded by OPNsense
+  hostNetwork: true
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 0
   accessLog:
     enabled: true
   metrics:
