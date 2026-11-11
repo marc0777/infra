@@ -33,6 +33,9 @@ traefik:
           readTimeout: 600
           writeTimeout: 600
           idleTimeout: 600
+      http3:
+        enabled: true
+        advertisedPort: 443
       http:
         middlewares:
         - traefik-crowdsec-bouncer@kubernetescrd
