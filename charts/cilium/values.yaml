@@ -46,6 +46,9 @@ cilium:
   bgpControlPlane:
     enabled: true
 
+  egressGateway:
+    enabled: true
+
   prometheus:
     metricsService: true
     enabled: true

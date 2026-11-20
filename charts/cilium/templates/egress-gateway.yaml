@@ -1,0 +1,23 @@
+# Pods labelled egress-gateway=vpn leave the cluster through ens19 on the gateway node
+apiVersion: cilium.io/v2
+kind: CiliumEgressGatewayPolicy
+metadata:
+  name: egress-vpn
+  annotations:
+    # CRD is created by the operator only after egressGateway is enabled
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+spec:
+  selectors:
+    - podSelector:
+        matchLabels:
+          egress-gateway: vpn
+  destinationCIDRs:
+    - "0.0.0.0/0"
+  # Keep LAN traffic on the normal path
+  excludedCIDRs:
+    - "10.0.0.0/24"
+  egressGateway:
+    nodeSelector:
+      matchLabels:
+        egress-gateway: "true"
+    interface: ens19
