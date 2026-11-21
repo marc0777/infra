@@ -49,6 +49,8 @@ cilium:
   egressGateway:
     enabled: true
 
+  rollOutCiliumPods: true
+
   prometheus:
     metricsService: true
     enabled: true
@@ -57,6 +59,7 @@ cilium:
       enabled: true
 
   operator:
+    rollOutPods: true
     prometheus:
       enabled: true
       serviceMonitor:
